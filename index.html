@@ -19,38 +19,6 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Globos decorativos animados */
-        .balloons-left, .balloons-right {
-            position: absolute;
-            top: 0;
-            width: 120px;
-            height: 100%;
-            background-size: contain;
-            background-repeat: repeat-y;
-            pointer-events: none;
-            opacity: 0.95;
-            animation: float 3s ease-in-out infinite;
-            z-index: 0;
-        }
-
-        .balloons-left {
-            left: -10px;
-            background-image: url('images/globos.png');
-        }
-
-        .balloons-right {
-            right: -10px;
-            background-image: url('images/globos.png');
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
         }
 
         .invitation-card {
@@ -61,8 +29,6 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             animation: fadeIn 1s ease-in;
-            position: relative;
-            z-index: 1;
         }
 
         @keyframes fadeIn {
@@ -83,9 +49,9 @@
             color: white;
         }
 
-        .header img {
-            width: 90px;
-            margin-bottom: 10px;
+        .cap-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
         }
 
         .header h1 {
@@ -206,28 +172,22 @@
             .time-value {
                 font-size: 28px;
             }
-            .balloons-left, .balloons-right {
-                width: 70px;
-            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Globos decorativos -->
-    <div class="balloons-left"></div>
-    <div class="balloons-right"></div>
-
     <div class="invitation-card">
         <div class="header">
-            <img src="images/images.jpeg" alt="">
+            <div >
+                <img src="images/images.jpeg" alt="">
+            </div>
             <h1>Invitación a mi Graduación</h1>
             <p>Sería un honor contar con tu presencia</p>
         </div>
 
         <div class="content">
             <div class="graduate-name">Rayder Alfredo Muñoz Pacheco</div>
-            <div class="degree">Bachiller en Ingeniería de Sistemas</div>
+            <div class="degree">Bachiller en Ingenieria de sistemas</div>
 
             <div class="details">
                 <div class="detail-item">
@@ -237,7 +197,7 @@
                     <strong>🕐 Hora:</strong> 1:00 PM
                 </div>
                 <div class="detail-item">
-                    <strong>📍 Lugar:</strong> Ccoyahuacho - Al costado del Ajasooo
+                    <strong>📍 Lugar:</strong> Ccoyahuacho - Al costado del Ajaso
                 </div>
             </div>
 
@@ -275,6 +235,7 @@
     </div>
 
     <script>
+        // Configura aquí la fecha de la graduación
         const graduationDate = new Date('2025-12-11T10:00:00').getTime();
 
         function updateCountdown() {
