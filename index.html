@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Graduación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .invitation-card {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .cap-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .graduate-name {
+            font-size: 36px;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .degree {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .details {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            margin: 15px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .detail-item strong {
+            color: #667eea;
+        }
+
+        .countdown {
+            margin: 30px 0;
+        }
+
+        .countdown-title {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 80px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .time-value {
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .time-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .message {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .graduate-name {
+                font-size: 28px;
+            }
+            .time-unit {
+                min-width: 70px;
+                padding: 15px;
+            }
+            .time-value {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-card">
+        <div class="header">
+            <div class="cap-icon">🎓</div>
+            <h1>Invitación a mi Graduación</h1>
+            <p>Sería un honor contar con tu presencia</p>
+        </div>
+
+        <div class="content">
+            <div class="graduate-name">Rayder Alfredo Muñoz Pacheco</div>
+            <div class="degree">Bachiller en Ingenieria de sistemas</div>
+
+            <div class="details">
+                <div class="detail-item">
+                    <strong>📅 Fecha:</strong> 11 de Diciembre, 2025
+                </div>
+                <div class="detail-item">
+                    <strong>🕐 Hora:</strong> 10:00 AM
+                </div>
+                <div class="detail-item">
+                    <strong>📍 Lugar:</strong> Auditorio Principal - Universidad Nacional José Maria Arguedas
+                </div>
+            </div>
+
+            <div class="countdown">
+                <div class="countdown-title">⏰ Cuenta Regresiva</div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="time-unit">
+                        <span class="time-value" id="days">00</span>
+                        <span class="time-label">Días</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-value" id="hours">00</span>
+                        <span class="time-label">Horas</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-value" id="minutes">00</span>
+                        <span class="time-label">Minutos</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-value" id="seconds">00</span>
+                        <span class="time-label">Segundos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message">
+                Tu presencia en este momento tan especial significaría mucho para mí. 
+                Después de años de esfuerzo y dedicación, finalmente llegó el gran día.
+            </div>
+        </div>
+
+        <div class="footer">
+            ¡Espero verte allí! 💙
+        </div>
+    </div>
+
+    <script>
+        // Configura aquí la fecha de la graduación
+        const graduationDate = new Date('2025-12-11T10:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = graduationDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = 
+                    '<div class="time-unit" style="min-width: 200px;"><span class="time-value">¡Ya es hoy!</span></div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
